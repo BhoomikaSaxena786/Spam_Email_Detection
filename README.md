@@ -54,7 +54,6 @@ Recall (Spam): 100.00%
 
 F1-Score (Spam): 98.39%
 
-<img width="600" height="600" alt="Figure_1" src="https://github.com/user-attachments/assets/06c1baad-8e90-4213-9ad6-4a2c55e7ccee" />
 <img width="1200" height="600" alt="Figure_2" src="https://github.com/user-attachments/assets/7361c6c4-c5fe-47ef-8d40-fe4473083bb5" />
 
 The confusion matrix below provides a detailed breakdown of the model's predictions on the test data.
@@ -63,7 +62,8 @@ Predicted Ham	Predicted Spam
 Actual Ham	1129 (True Negatives)	37 (False Positives)
 Actual Spam	0 (False Negatives)	126 (True Positives)
 
-<img width="1920" height="1080" alt="Screenshot (114)" src="https://github.com/user-attachments/assets/1bfaea4f-a814-4eab-9b67-e86d4db0ee12" />
+<img width="1920" height="1080" alt="Screenshot (116)" src="https://github.com/user-attachments/assets/43fb3474-5dbd-4f62-9353-1178605ff159" />
+
 <img width="1920" height="1080" alt="Screenshot (115)" src="https://github.com/user-attachments/assets/87d53bd8-0de1-49c3-9e8d-e112c52feea0" />
 
 
