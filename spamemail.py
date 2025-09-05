@@ -1,51 +1,3 @@
-# import numpy as np
-# import pandas as pd
-# import warnings
-# warnings.filterwarnings("ignore")
-# df = pd.read_csv("spam.csv", on_bad_lines="skip", sep="\t")
-# df.columns = ["Label", "Message"] #creating columns
-# print(df.head(5)) #top 5 columns will be shown
-
-# from sklearn.model_selection import train_test_split
-# from sklearn.feature_extraction.text import TfidfTransformer
-# from sklearn.metrics import accuracy_score
-
-# df['Label'] =df['Label'].map({'spam':0,'ham':1})
-# print(df.head())
-# print(df.isnull().sum()) #check for missing values
-# print(df.duplicated().sum())#num of duplicate values
-# df=df.drop_duplicates(keep='first') #ignore duplicate values
-# print(df.duplicated().sum()) #after ignoring recheck the duplicate values
-# print(df.shape) 
-# print(df["Label"].value_counts()) 
-# import matplotlib.pyplot as plt
-# plt.pie(df["Label"].value_counts(),labels=['ham','spam'],autopct= "%0.2f")
-# plt.show()
-# import nltk
-# nltk.download('punkt')
-# df['num_alphabet']=df['Message'].apply(len) #will give the number of charachters 
-# print(df.head()) 
-# df['num_words']=df['Message'].apply(lambda x:len(nltk.word_tokenize(x))) #give the number of words
-# print(df.head())
-# df['num_sent']=df['Message'].apply(lambda x:len(nltk.sent_tokenize(x))) #give the number of sentences
-# print(df.head())
-# spam_stats=df[df['Label']==1][['num_alphabet','num_words','num_sent']].describe() #for spam messages
-# print(spam_stats)
-# ham_stats=df[df['Label']==0][['num_alphabet','num_words','num_sent']].describe() #for ham messages
-# print(ham_stats)
-# import seaborn as sns 
-# sns.histplot(df[df['Label'] ==0]['num_alphabet'],color='blue')
-# sns.histplot(df[df['Label'] ==1]['num_alphabet'],color='red')
-# plt.show()
-#data preprocessing
-#lower case
-#tokenization
-#removing special characters
-#stemming
-
- 
-
-
 # Import necessary libraries
 import numpy as np
 import pandas as pd
@@ -190,4 +142,5 @@ prediction = model_pipeline.predict(new_message)
 if prediction[0] == 0:
     print("\n'{}' is predicted as: SPAM".format(new_message[0]))
 else:
+
     print("\n'{}' is predicted as: HAM".format(new_message[0]))
