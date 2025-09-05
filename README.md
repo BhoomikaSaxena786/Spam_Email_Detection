@@ -45,7 +45,7 @@ Backend (app.py):
 
 The script first loads and cleans the spam.csv dataset.
 
-<img width="1920" height="1080" alt="Screenshot (114)" src="https://github.com/user-attachments/assets/a4ef1709-1bca-47e3-9ab6-51c524c45eb8" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1eb4f46c-1dd8-4f41-a343-dc984bf95764" />
 
 <img width="1920" height="1080" alt="Screenshot (115)" src="https://github.com/user-attachments/assets/b8060b18-9c4b-4f36-a404-5e0e397310f7" />
 
