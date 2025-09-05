@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam Detector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f2f5;
+            flex-direction: column;
+            text-align: center;
+        }
+        .container {
+            background-color: white;
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+        }
+        h1 {
+            color: #333;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            resize: vertical;
+            font-size: 16px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Spam Detector</h1>
+        <p>Enter a message below to classify it as 'spam' or 'ham'.</p>
+        <form id="spam-form">
+            <textarea id="message-input" rows="5" placeholder="Enter your message here..."></textarea>
+            <br>
+            <button type="submit">Classify Message</button>
+        </form>
+        <div id="result"></div>
+    </div>
+    <script>
+        document.getElementById('spam-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const message = document.getElementById('message-input').value;
+            const resultDiv = document.getElementById('result');
+            resultDiv.textContent = 'Classifying...';
+
+            try {
+                const response = await fetch('/classify', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ message: message })
+                });
+
+                const data = await response.json();
+                
+                if (data.prediction === 0) {
+                    resultDiv.textContent = 'Prediction: SPAM';
+                    resultDiv.style.color = 'red';
+                } else {
+                    resultDiv.textContent = 'Prediction: HAM';
+                    resultDiv.style.color = 'green';
+                }
+            } catch (error) {
+                resultDiv.textContent = 'Error: Could not classify message.';
+                resultDiv.style.color = 'black';
+                console.error('Error:', error);
+            }
+        });
+    </script>
+</body>
+</html>
